@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
+    <!-- plugins:css -->
+    @Styles.Render("~/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css")
+    @Styles.Render("~/assets/vendors/iconfonts/ionicons/dist/css/ionicons.css")
+    @Styles.Render("~/assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css")
+    @Styles.Render("~/assets/vendors/css/vendor.bundle.base.css")
+    @Styles.Render("~/assets/vendors/css/vendor.bundle.addons.css")
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    @Styles.Render("~/assets/css/shared/style.css")
+    <!-- endinject -->
+    <!-- Layout styles -->
+    @Styles.Render("~/assets/css/demo_1/style.css")
+    <!-- End Layout styles -->
+    @Styles.Render("~/assets/images/favicon.ico")
+</head>
+<body>
+    <div class="container-scroller">
+        @Html.Partial("_Header")
+        <div class="container-fluid page-body-wrapper">
+            @Html.Partial("_Menu")
+
+            @RenderBody()
+        </div>
+    </div>
+
+    <!-- plugins:js -->
+    @Scripts.Render("~/assets/vendors/js/vendor.bundle.base.js")
+    @Scripts.Render("~/assets/vendors/js/vendor.bundle.addons.js")
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    @Scripts.Render("~/assets/js/shared/off-canvas.js")
+    @Scripts.Render("~/assets/js/shared/misc.js")
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    @Scripts.Render("~/assets/js/demo_1/dashboard.js")
+    <!-- End custom js for this page-->
+    @Scripts.Render("~/assets/js/shared/jquery.cookie.js")
+
+</body>
+</html>
