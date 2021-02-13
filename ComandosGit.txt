@@ -1,0 +1,5 @@
+Subir cambios nuevos
+git add -A 
+git commit -m "nombre de la version"
+git push origin master
+
