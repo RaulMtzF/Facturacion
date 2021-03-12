@@ -1,0 +1,467 @@
+﻿
+@{
+    ViewBag.Title = "AuditarFactura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Auditar Factura-->
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Generar factura</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header" style="padding: 0.50rem 1rem; background-color: #3589e0; color: #fff;">
+                                        Detalle del Servicio
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">No. Servicio</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 mt-4">
+                                                <button type="button" class="btn btn-success btn-fw" id="Prueba">
+                                                    <i class="mdi mdi-magnify"></i>Buscar
+                                                </button>
+                                            </div>
+                                            <div class="col-md-4 mt-4 ml-4">
+                                                <button type="button" class="btn btn-secondary btn-fw" id="Prueba">
+                                                    <i class="mdi mdi-eye"></i>Búsqueda Avanzada
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6" id="InfoFactura">
+                                <div class="card">
+                                    <div class="card-header" style="padding: 0.50rem 1rem; background-color: #3589e0; color: #fff;">
+                                        Emisor
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlSelect1">Razon Social</label>
+                                                    <select class="form-control form-control-md" id="exampleFormControlSelect1">
+                                                        <option>--Seleccionar--</option>
+                                                        <option>Inteek Dynamic</option>
+                                                        <option>Inteek Dynamic2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">RFC</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Régimen Fiscal</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Calle y Número</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Colonia</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">CP</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Municipio</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Estado</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">País</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Lugar de Expedición</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Tipo de Comprobante</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" id="InfoAuditoria">
+                                <div class="card">
+                                    <div class="card-header" style="padding: 0.50rem 1rem; background-color: #3589e0; color: #fff;">
+                                        Receptor
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">RFC</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Cliente</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Calle y Número</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Colonia</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">CP</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Municipio</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Estado</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">País</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header" style="padding: 0.50rem 1rem; background-color: #3589e0; color: #fff;">
+                                        Configuración de Factura
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlSelect1">Forma de Pago</label>
+                                                    <select class="form-control form-control-md" id="exampleFormControlSelect1">
+                                                        <option>--Seleccionar--</option>
+                                                        <option>Forma 1</option>
+                                                        <option>Forma 2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlSelect1">Método de Pago</label>
+                                                    <select class="form-control form-control-md" id="exampleFormControlSelect1">
+                                                        <option>--Seleccionar--</option>
+                                                        <option>Método 1</option>
+                                                        <option>Método 2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlSelect1">Uso de CFDI</label>
+                                                    <select class="form-control form-control-md" id="exampleFormControlSelect1">
+                                                        <option>--Seleccionar--</option>
+                                                        <option>CFDI 1</option>
+                                                        <option>CFDI 2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlSelect1">Moneda</label>
+                                                    <select class="form-control form-control-md" id="exampleFormControlSelect1">
+                                                        <option>--Seleccionar--</option>
+                                                        <option>Moneda 1</option>
+                                                        <option>Moneda 2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label>Tipo de Cambio</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2 mt-4">
+                                                <label class="">
+                                                    <input type="checkbox" class="" style="width: 15px; height: 15px;">  Envío de factura
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Correo para envío de factura</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="">Tiempo de envío</label>
+                                                    <select class="form-control form-control-md" id="exampleFormControlSelect1">
+                                                        <option>--Seleccionar--</option>
+                                                        <option>Tiempo 1</option>
+                                                        <option>Tiempo 2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-9" id="">
+                                <div class="card">
+                                    <div class="card-header" style="padding: 0.50rem 1rem; background-color: #3589e0; color: #fff;">
+                                        Servicios
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <table class="table" style="border:1px solid #dadada">
+                                                <thead class="" style="background-color: #3589e0;">
+                                                    <tr>
+                                                        <th style="color: #fff;" scope="col"></th>
+                                                        <th style="color: #fff;" scope="col">Cantidad</th>
+                                                        <th style="color: #fff;" scope="col">Descripcón</th>
+                                                        <th style="color: #fff;" scope="col">Importe</th>
+                                                        <th style="color: #fff;" scope="col">Descuento</th>
+                                                        <th style="color: #fff;" scope="col">IVA</th>
+                                                        <th style="color: #fff;" scope="col">Retención</th>
+                                                        <th style="color: #fff;" scope="col">Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><input type="checkbox" class="" style="width: 15px; height: 15px;"></td>
+                                                        <td>100</td>
+                                                        <td>Desarrollo de sortware</td>
+                                                        <td>$ 5,510</td>
+                                                        <td>$ 1,000</td>
+                                                        <td>$ 695</td>
+                                                        <td>$ 489</td>
+                                                        <td>$ 7,694</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" class="" style="width: 15px; height: 15px;"></td>
+                                                        <td>100</td>
+                                                        <td>Desarrollo de sortware</td>
+                                                        <td>$ 5,510</td>
+                                                        <td>$ 1,000</td>
+                                                        <td>$ 695</td>
+                                                        <td>$ 489</td>
+                                                        <td>$ 7,694</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" class="" style="width: 15px; height: 15px;"></td>
+                                                        <td>100</td>
+                                                        <td>Desarrollo de sortware</td>
+                                                        <td>$ 5,510</td>
+                                                        <td>$ 1,000</td>
+                                                        <td>$ 695</td>
+                                                        <td>$ 489</td>
+                                                        <td>$ 7,694</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12" style="text-align: right;">
+                                                <button type="button" class="btn btn-icons btn-rounded btn-primary">
+                                                    <i class="mdi mdi-plus"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-icons btn-rounded btn-danger">
+                                                    <i class="mdi mdi-close"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3" id="">
+                                <div class="card">
+                                    <div class="card-header" style="padding: 0.50rem 1rem; background-color: #3589e0; color: #fff;">
+                                        Cargos
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Monto Servicio</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Cargos Adicionales</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;"> % Descuento</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Descuento</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Subtotal</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">IVA</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Retencón</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Total</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header" style="padding: 0.50rem 1rem; background-color: #3589e0; color: #fff;">
+                                        Agenda
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Descripcion</label>
+                                                    <textarea class="form-control" id="" rows="2"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row" style="background-color: #f7f7f7; height: 50px;">
+                            <div class="col-md-12" style="text-align: right; margin-top: 10px;">
+                                <button type="button" class="btn btn-secondary btn-fw" id="">
+                                    <i class="mdi mdi-printer"></i>Imprimir factura
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-fw" id="">
+                                    <i class="mdi mdi-download"></i>Descargar factura
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-fw" id="">
+                                    <i class="mdi mdi-email"></i>Re-enviar factura
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-fw" id="">
+                                    <i class="mdi mdi-file-xml"></i>Re-facturar
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-fw" id="">
+                                    <i class="mdi mdi-block-helper"></i>Cancelar factura
+                                </button>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

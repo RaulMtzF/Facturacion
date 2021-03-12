@@ -83,3 +83,4 @@ C:\Users\Raúl Martínez\source\repos\Facturacion\Facturacion\obj\Debug\Facturac
 C:\Users\Raúl Martínez\source\repos\Facturacion\Facturacion\obj\Debug\Facturacion.csproj.CopyComplete
 C:\Users\Raúl Martínez\source\repos\Facturacion\Facturacion\obj\Debug\Facturacion.dll
 C:\Users\Raúl Martínez\source\repos\Facturacion\Facturacion\obj\Debug\Facturacion.pdb
+C:\Users\Raúl Martínez\source\repos\Facturacion\Facturacion\obj\Debug\Facturacion.csprojAssemblyReference.cache

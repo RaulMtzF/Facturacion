@@ -1,0 +1,365 @@
+﻿
+@{
+    ViewBag.Title = "Cancelaciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    /*Color del texto del enbacezado*/
+    /*.k-grid th.k-header,
+    .k-grid th.k-header .k-link {
+        color: #fff;
+    }*/
+
+    /* Ocultar scroll vertical */
+    .k-grid-content {
+        overflow-y: auto;
+    }
+
+    /*Tamaño del grid*/
+    /* .k-grid {
+        width: 500px;
+    }*/
+
+    /*#grid .k-grid-header .k-header {
+        background-color: #3589e0;
+    }*/
+
+    .k-draghandle.k-state-selected:hover, .k-ghost-splitbar-horizontal, .k-ghost-splitbar-vertical, .k-list > .k-state-highlight, .k-list > .k-state-selected, .k-marquee-color, .k-panel > .k-state-selected, .k-scheduler .k-scheduler-toolbar .k-state-selected, .k-scheduler .k-today.k-state-selected, .k-state-selected, .k-state-selected:link, .k-state-selected:visited, .k-tool.k-state-selected {
+        color: #fff;
+        background-color: #a9a9a9;
+        border-color: #a9a9a9;
+    }
+
+    /*grid*/
+
+    .k-grid table tr:hover td {
+        background: #c3c3c3;
+        cursor: pointer;
+    }
+
+    .k-grid table tr:hover td {
+        background: #c3c3c3;
+        cursor: pointer;
+    }
+
+    .k-grid .k-grid-header .k-header {
+        font-family: Arial;
+        font-size: 14px;
+        background: none #3589e0;
+        background-color: #3589e0;
+        color: #fff !important;
+    }
+
+        .k-grid .k-grid-header .k-header .k-link {
+            color: #fff !important;
+            font-weight: bold;
+        }
+
+    .k-grid-content {
+        font-family: 'Arial' !important;
+        color: #424242 !important;
+        font-weight: normal !important;
+        font-size: 14px !important;
+    }
+
+    .k-grid-header {
+        padding-right: 0 !important;
+    }
+
+    .k-grid-content {
+        overflow-y: visible;
+    }
+
+    /*Ocultar footer*/
+    #grid > .k-pager-wrap.k-grid-pager {
+        display: none;
+    }
+</style>
+
+<!-- Cancelaciones-->
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row page-title-header">
+            <div class="col-12">
+                <div class="page-header">
+                    <h4 class="page-title">Cancelaciones</h4>
+                    @*<div class="quick-link-wrapper w-100 d-md-flex flex-md-wrap">
+                            <ul class="quick-links">
+                                <li><a href="#">ICE Market data</a></li>
+                                <li><a href="#">Own analysis</a></li>
+                                <li><a href="#">Historic market data</a></li>
+                            </ul>
+                            <ul class="quick-links ml-auto">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Analytics</a></li>
+                                <li><a href="#">Watchlist</a></li>
+                            </ul>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row forms-sample">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="">Factura</label>
+                                    <input type="text" class="form-control" id="" placeholder="No. de factura">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Cliente</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Nombre del cliente">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">RFC</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="RFC del cliente">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Estatus</label>
+                                    <select class="form-control form-control-md" id="exampleFormControlSelect1">
+                                        <option>--Seleccionar--</option>
+                                        <option>Pendiente</option>
+                                        <option>Cancelado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Centro de servicio</label>
+                                    <select class="form-control form-control-md" id="exampleFormControlSelect1">
+                                        <option>--Seleccionar--</option>
+                                        <option>Centro</option>
+                                        <option>Norte</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group mt-4">
+                                    <button type="button" class="btn btn-secondary btn-fw">
+                                        <i class="mdi mdi-magnify"></i>Buscar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Información facturas</h4>
+                        <div class="row mb-5">
+                            <div class="col-md-12" style="text-align: center;">
+                                <div id="grid" style="display: none;"></div>
+                                <div id="GifCargando">
+                                    <div class="tx-center" style="margin-top:1%">
+                                        <div class="spinner-border text-primary" role="status">
+                                            <span class="sr-only">Cargando</span>
+                                        </div>
+                                    </div>
+                                    <div class="tx-center tx-bold">
+                                        <label>Cargando</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="text-align: center;">
+                                <div id="GifInfoFac" style="display: none;">
+                                    <div class="tx-center" style="margin-top:1%">
+                                        <div class="spinner-border text-primary" role="status">
+                                            <span class="sr-only">Cargando</span>
+                                        </div>
+                                    </div>
+                                    <div class="tx-center tx-bold">
+                                        <label>Cargando</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" id="InfoFactura" style="display: none;">
+                                <div class="card">
+                                    <div class="card-header" style="padding: 0.50rem 1rem; background-color: #3589e0; color: #fff;">
+                                        Detalle del Servicio
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Folio</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Serie</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">RFC Emisor</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Emisor</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Lugar de Expedición</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Tipo de Comprobante</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">UUID</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">No. Certificado</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Fecha Timbrado</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-4">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">RFC</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Cliente</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Domicilio</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-4">
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Servicio</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Uso CFDI</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Forma de Pago</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Método de Pago</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Moneda</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-4">
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Costo Servicio</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Cargos Ad</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Descuento</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Subtotal</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">IVA</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px;">Total</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/ConectarAsy.js")
+@Scripts.Render("~/Scripts/Facturacion/Cancelaciones.js?v=2")
+
+<script type="text/javascript">
+
+
+
+</script>
+
+

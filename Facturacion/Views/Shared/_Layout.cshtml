@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Facturacion.Helpers;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -7,7 +9,7 @@
     <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
     <!-- plugins:css -->
     @Styles.Render("~/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css")
-    @Styles.Render("~/assets/vendors/iconfonts/ionicons/dist/css/ionicons.css")
+    @*@Styles.Render("~/assets/vendors/iconfonts/ionicons/dist/css/ionicons.css")*@
     @Styles.Render("~/assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css")
     @Styles.Render("~/assets/vendors/css/vendor.bundle.base.css")
     @Styles.Render("~/assets/vendors/css/vendor.bundle.addons.css")
@@ -21,8 +23,21 @@
     @Styles.Render("~/assets/css/demo_1/style.css")
     <!-- End Layout styles -->
     @Styles.Render("~/assets/images/favicon.ico")
+
+    <!-- kendoUI -->
+    @Styles.Render("~/Scripts/kendoUI/css/kendo.common.min.css")
+    @Styles.Render("~/Scripts/kendoUI/css/kendo.default.min.css")
+    @Styles.Render("~/Scripts/kendoUI/css/kendo.default.mobile.min.css")
+
 </head>
 <body>
+
+    @Html.InputURL()
+
+    <script type="text/javascript">
+        var UrlActual = document.getElementById("inputURL").value;
+    </script>
+
     <div class="container-scroller">
         @Html.Partial("_Header")
         <div class="container-fluid page-body-wrapper">
@@ -30,7 +45,12 @@
 
             @RenderBody()
         </div>
+        @Html.Partial("_Footer")
     </div>
+
+
+
+    @Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
 
     <!-- plugins:js -->
     @Scripts.Render("~/assets/vendors/js/vendor.bundle.base.js")
@@ -45,7 +65,11 @@
     <!-- Custom js for this page-->
     @Scripts.Render("~/assets/js/demo_1/dashboard.js")
     <!-- End custom js for this page-->
-    @Scripts.Render("~/assets/js/shared/jquery.cookie.js")
+    @*@Scripts.Render("~/assets/js/shared/jquery.cookie.js")*@
+
+    @Scripts.Render("~/Scripts/kendoUI/js/kendo.all.min.js")
+    @Scripts.Render("~/Scripts/kendoUI/js/jszip.min.js")
+
 
 </body>
 </html>
